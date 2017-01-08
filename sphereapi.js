@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var users = require('./routes/url-users');
+var secteurs = require('./routes/url-secteurs');
+var agences = require('./routes/url-agences');
 var cors = require('express-cors');
 
 var sphereapi = express();
@@ -23,6 +25,19 @@ sphereapi.use('/',cors({
         'preprod.rapid-systeme.fr', '*'
     ]
 }), users);
+
+sphereapi.use('/',cors({
+    allowedOrigins: [
+        'preprod.rapid-systeme.fr', '*'
+    ]
+}), secteurs);
+
+sphereapi.use('/',cors({
+    allowedOrigins: [
+        'preprod.rapid-systeme.fr', '*'
+    ]
+}), agences);
+
 
 // catch 404 and forward to error handler
 sphereapi.use(function(req, res, next) {

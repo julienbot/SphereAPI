@@ -73,13 +73,11 @@ function removeUser(req, res, next) {
     var userID = parseInt(req.params.id);
     db.result('delete from sp_users where user_id = $1', userID)
         .then(function (result) {
-            /* jshint ignore:start */
             res.status(200)
                 .json({
                     status: 'success',
                     message: 'Removed '+ result.rowCount + ' user'
                 });
-            /* jshint ignore:end */
         })
         .catch(function (err) {
             return next(err);
