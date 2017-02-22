@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var secteurs = express.Router();
-var db = require('../models/sp-secteurs');
+var db = require('../models/sp_secteurs');
 
 
 secteurs.get('/api/secteurs', db.getSecteurs);
